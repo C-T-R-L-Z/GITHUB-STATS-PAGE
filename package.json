@@ -1,0 +1,29 @@
+{
+  "name": "GITHUB-STATS-PAGE",
+  "version": "1.0.0",
+  "description": "Group members: - Christ Stanley - Ilker Zaimoglu - Ting Luo",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/C-T-R-L-Z/GITHUB-STATS-PAGE.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/C-T-R-L-Z/GITHUB-STATS-PAGE/issues"
+  },
+  "homepage": "https://github.com/C-T-R-L-Z/GITHUB-STATS-PAGE#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "ejs": "^2.7.1",
+    "express": "^4.17.1",
+    "method-override": "^3.0.0",
+    "pg": "^7.12.1",
+    "superagent": "^5.1.0"
+  }
+}
