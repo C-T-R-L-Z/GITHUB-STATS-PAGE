@@ -27,7 +27,11 @@ app.use(methodOverride((request, response) => {
   }
 }));
 
-app.get('/', apiCall);
+//import file paths
+const homePage = require('./paths/rootPath');
+
+//Route calls
+app.get('/', homePage);
 
 app.get('*', error404);
 
@@ -40,6 +44,7 @@ function apiCall (request, response) {
     .set('User-Agent', 'C-T-R-L-Z')
     .auth (process.env.username, process.env.password)
     .then (results => console.log(results.body))
+
     .catch(err => superagnetError(err, response));
 }
 
