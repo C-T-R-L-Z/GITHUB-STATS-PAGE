@@ -37,16 +37,14 @@ app.get('*', error404);
 
 function apiCall (request, response) {
 
-  let org = 'fish-farm-clap';
-  let url = `https://api.github.com/orgs/fish-farm-clap/`;
+  let org = 'C-T-R-L-Z';
+  let url = `https://api.github.com/orgs/C-T-R-L-Z/issues?filter=all`;
 
   superagent.get(url)
-    .set('User-Agent', 'Stanels42')
+    .set('User-Agent', 'C-T-R-L-Z')
     .auth (process.env.username, process.env.password)
-    .then (results => {
-      console.log(results.body);
-      response.send(results.body);
-    })
+    .then (results => console.log(results.body))
+
     .catch(err => superagnetError(err, response));
 }
 
