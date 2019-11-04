@@ -27,19 +27,26 @@ app.use(methodOverride((request, response) => {
   }
 }));
 
-app.get('/', apiCall);
+//import file paths
+const homePage = require('./paths/rootPath');
+
+//Route calls
+app.get('/', homePage);
 
 app.get('*', error404);
 
 function apiCall (request, response) {
 
   let org = 'fish-farm-clap';
-  let url = `https://api.github.com/orgs/fish-farm-calp`;
+  let url = `https://api.github.com/orgs/fish-farm-clap/`;
 
   superagent.get(url)
     .set('User-Agent', 'Stanels42')
-    // .send (process.env.username, process.env.password)
-    .then (results => console.log(results.body))
+    .auth (process.env.username, process.env.password)
+    .then (results => {
+      console.log(results.body);
+      response.send(results.body);
+    })
     .catch(err => superagnetError(err, response));
 }
 
