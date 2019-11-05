@@ -1,5 +1,5 @@
 {
-  "name": "GITHUB-STATS-PAGE",
+  "name": "github-stats-page",
   "version": "1.0.0",
   "description": "Group members: - Christ Stanley - Ilker Zaimoglu - Ting Luo",
   "main": "server.js",
@@ -19,11 +19,13 @@
   },
   "homepage": "https://github.com/C-T-R-L-Z/GITHUB-STATS-PAGE#readme",
   "dependencies": {
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "ejs": "^2.7.1",
     "express": "^4.17.1",
     "method-override": "^3.0.0",
     "pg": "^7.12.1",
     "superagent": "^5.1.0"
-  }
+  },
+  "devDependencies": {}
 }
