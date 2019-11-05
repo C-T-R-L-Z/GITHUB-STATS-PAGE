@@ -7,9 +7,9 @@
     <article>
       <% orgList.forEach(org => { %>
         <div>
-        <img src=<%= org.avatar_url %> alt="statcover">
+        <img id="imgOrg" src=<%= org.avatar_url %> alt="statcover">
         <h3><%= org.id %></h3>
-        <h4><%= org.login %></h4>
+        <h3><%= org.login %></h3>
         <p><%= org.description %></p>
         <button class="formButton" type="submit">Choose Organisation</button>
       </div>
@@ -20,3 +20,4 @@
     <script src="js/app.js"></script>
   </body>
 </html>
+
