@@ -23,6 +23,11 @@ As a user I would like to see performance of my project team and so can evaluate
 Users can choose different graphs for the evaluations.
 Ensure that you can see these inputs on the graphs.
 
+Organizations Selector
+As a user I would like to have the ability to select different organizations to display the graphs. 
+Users can select individual organizations. 
+Ensure that users can see graphs showing according to selected organizations.
+
 Collaborator Selector
 As a user I would like to see graphs of evaluations for the whole team and/or any other collaborators. So I can unselect the collaborators who are on holiday, or are doing research for the project, or any other types of work that they are not measured by GitHub stats. 
 Users can select collaborators when graphing.
@@ -33,10 +38,7 @@ As a user, I would like to see the developers behind this project, so that I can
 User can navigate to a page containing information about the developers.
 Ensure that the users can learn more about the developers and provide ways for reaching out to the developers.
 
-Organizations Selector
-As a user I would like to have the ability to select different organizations to display the graphs. 
-Users can select individual organizations. 
-Ensure that users can see graphs showing according to selected organizations.
+
 
 
 Domain Modeling

@@ -29,13 +29,18 @@ app.use(methodOverride((request, response) => {
 
 //import file paths
 const homePage = require('./paths/rootPath');
-const issuesResults = require('./paths/issues');
 
+const PRresults = require('./paths/pullRequests');
+const displayList = require('./paths/displayList');
+const issuesResults = require('./paths/issues');
 
 //Route calls
 app.get('/', homePage);
+app.get('/pr', PRresults);
+app.get('/orgsList', displayList);
 app.get('/issues', issuesResults);
 
+// app.get('/data', dataPage);
 
 app.get('*', error404);
 

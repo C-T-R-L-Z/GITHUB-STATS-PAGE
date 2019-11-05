@@ -1,0 +1,21 @@
+%- include('../../partials/head') %>
+<body>
+  <%- include('../../partials/header') %>
+
+  <article>
+    <% stats.forEach(book => { %>
+    <h4>Number of Books:<%= stats.length %></h4>
+    <section>
+      <img src=<%= stat.avatar_url %> alt="statcover">
+      <h3><%= stat.id %></h3>
+      <h4><%= stat.login %></h4>
+      <p><%= book.description %></p>
+      <h4><%= stat.isbn %></h4>
+      <h4><%= stat.statPage %></h4>
+    </section>
+    <% }) %>
+  </article>
+  <%- include('../partials/footer') %>
+</body>
+
+</html>
