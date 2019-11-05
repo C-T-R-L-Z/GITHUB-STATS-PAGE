@@ -9,3 +9,4 @@ function bottomHandler(event) {
   $(event.target).next().toggle();
 }
 
+

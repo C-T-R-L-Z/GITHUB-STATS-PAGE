@@ -26,7 +26,7 @@ function getIssues (request, response, orgData) {
         });
 
       });
-      response.render('pages/stats/stats', {orgdata: orgData,});
+      response.send(orgData);
     })
     .catch(err => console.error(err));
 }
