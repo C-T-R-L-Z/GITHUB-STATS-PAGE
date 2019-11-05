@@ -29,7 +29,6 @@ app.use(methodOverride((request, response) => {
 
 //import file paths
 const homePage = require('./paths/rootPath');
-
 const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
 const issuesResults = require('./paths/issues');
@@ -37,33 +36,15 @@ const issuesResults = require('./paths/issues');
 //Route calls
 app.get('/', homePage);
 app.get('/pr', PRresults);
-app.get('/orgsList', displayList);
+app.post('/orgslist', displayList);
 app.get('/issues', issuesResults);
 
 // app.get('/data', dataPage);
 
 app.get('*', error404);
 
-function apiCall (request, response) {
-
-  let org = 'C-T-R-L-Z';
-  let url = `https://api.github.com/orgs/C-T-R-L-Z/issues?filter=all`;
-
-  superagent.get(url)
-    .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.username, process.env.password)
-    .then (results => console.log(results.body))
-
-    .catch(err => superagnetError(err, response));
-}
-
-function superagnetError (error, response) {
-  console.error(error);
-  response.send('error').status(500);
-}
-
 function error404 (request, response) {
-  response.status(404).semd('404 not found');
+  response.status(404).send('404 not found');
 }
 
 app.listen(PORT, () => console.log(`app is listening on ${PORT}`));

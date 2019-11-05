@@ -1,9 +1,7 @@
 'use strict';
 
-const superagent = require('superagent');
-
 function homePage (request, response) {
-  response.send('alive');
+  response.render('pages/index');
 }
 
 module.exports = homePage;

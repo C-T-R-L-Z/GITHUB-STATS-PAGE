@@ -5,27 +5,17 @@
 
     <h2>Organization Results</h2>
     <article>
-      <% statList.forEach(Org => { %>
+      <% orgList.forEach(org => { %>
         <div>
-        <img src=<%= stat.avatar_url %> alt="statcover">
-        <h3><%= stat.id %></h3>
-        <h4><%= stat.login %></h4>
-        <p><%= stat.description %></p>
+        <img src=<%= org.avatar_url %> alt="statcover">
+        <h3><%= org.id %></h3>
+        <h4><%= org.login %></h4>
+        <p><%= org.description %></p>
         <button class="formButton" type="submit">Choose Organisation</button>
-        <!-- <form class="form1" action="/add" method="post">
-          <input type="text" name="title" value="<%= book.title %>" >
-          <input type="text" name="collaborator" value="<%= stat.collaborator %>" >
-          <input type="text" name="pullReguest" value="<%= stat.pullReguest %>">
-          <input type="text" name="pullReguest" value="<%= stat.pullMerge %>">
-          <input type="text" name="mergeReguest" value="<%= stat.image_url %>">
-          <input type="text" name="description" value="<%= stat.description %>">
-          <input type="text" name="bookshelf" value="<%= stat.statPage %>" required>
-          <button type="submit">Add to My Stats</button>
-        </form> -->
       </div>
       <% }) %>  
     </article>
-    <%- include('../partials/footer') %>
+    <%- include('../../partials/footer') %>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="js/app.js"></script>
   </body>
