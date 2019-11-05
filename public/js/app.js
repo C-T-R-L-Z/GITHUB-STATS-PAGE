@@ -1,12 +1,15 @@
-'use strict'
+'use strict';
 
-$(".form1").hide();
+function collectInformation () {
+  let url = `${window.location.origin}/stats`;
 
-$(".formButton").on('click', bottomHandler);
-
-function bottomHandler(event) {
-  console.log(event.target);
-  $(event.target).next().toggle();
+  $.ajax({
+    url:url,
+    method: 'get',
+  })
+    .then(results => {
+      console.log(results);
+    });
 }
 
-
+collectInformation();

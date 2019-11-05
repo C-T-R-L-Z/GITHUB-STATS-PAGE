@@ -43,6 +43,11 @@ app.get('/issues', issuesResults);
 app.get('/assign', assigneesResults);
 app.get('/stats', statsPage);
 
+app.get('/graphs', displayPage);
+
+function displayPage(req, res) {
+  res.render('pages/stats/stats');
+}
 
 // app.get('/data', dataPage);
 
