@@ -7,17 +7,17 @@
   <h2>WELCOME GITHUBS STATS APP</h2>
   <img src="https://github.githubassets.com/images/modules/marketplace/marketplace-illustration-01.svg" alt="">
   <section>
-    <form action="/searhes" method="post">
+    <form action="/orgslist" method="post">
       <fieldset>
         <label for="user">
           <span>Please Enter Your Github Username</span>
-          <input type="text" name="name" value="<%= user.name %>">
+          <input type="text" name="name" value="" required>
         </label>
       </fieldset>
       <fieldset>
         <label for="user">
           <span>Please Enter Your Github Password</span>
-          <input type="text" name="password" value="<%= user.password %>">
+          <input type="password" name="password" value="" required>
       </label>
       </fieldset>
       <button id="edit" type="submit">Login</button>
