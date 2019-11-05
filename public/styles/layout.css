@@ -1,18 +1,23 @@
 
 body {
-  background: lightskyblue;
-  width : 100%;
-  font-family: Verdana, Geneva, Tahoma, sans-serif;
-  
+  font-family: 'Raleway', sans-serif;
+  background-image: radial-gradient(circle at center, #899Dc4, #495D84);
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100vh;
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
+  font-weight: 300;
 }
 
 header {
 
-  background-color: black;
-  color: white;
-  height : 75px;
+  height : 100px;
+  text-align: center;
   width : 100%
-
+      
 }
 
 
@@ -36,18 +41,11 @@ section {
   width: 80%;
 
 }
-div {
-  
-  background-color: lightsalmon;
-  border : 1px solid black;
-  display: inline-block;
-  height: 100%;
-  margin: 25px;
-  object-fit: scale-down;
-  position: relative;
-  margin: 20px 9px 20px 9px;
-  text-align: center;
-  width: 80%;
+
+title {
+
+  font-size : 4vw;
+  margin-top: 50px;
 }
 
 
@@ -65,4 +63,9 @@ fieldset {
   font-size: 2em;
   margin : 20px;
 
+}
+
+#homeImage {
+
+  display: initial;
 }
