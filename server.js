@@ -33,12 +33,16 @@ const homePage = require('./paths/rootPath');
 const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
 const issuesResults = require('./paths/issues');
+const assigneesResults = require('./paths/assignee');
+
 
 //Route calls
 app.get('/', homePage);
 app.get('/pr', PRresults);
 app.get('/orgsList', displayList);
 app.get('/issues', issuesResults);
+app.get('/assign', assigneesResults);
+
 
 // app.get('/data', dataPage);
 
