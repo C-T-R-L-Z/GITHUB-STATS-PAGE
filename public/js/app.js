@@ -8,3 +8,4 @@ function bottomHandler(event) {
   console.log(event.target);
   $(event.target).next().toggle();
 }
+

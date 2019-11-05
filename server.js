@@ -3,17 +3,16 @@
 require('dotenv').config();
 
 const express = require('express');
-const superagent = require('superagent');
 require('ejs');
 const methodOverride = require('method-override');
 
 const app = express();
 
 const PORT = process.env.PORT || 3002;
-const pg = require('pg');
-// const client = new pg.Client(process.env.DATABASE_URL);
-// client.on('error', err => { throw err; });
-// client.connect();
+
+const client = require('./client');
+
+
 
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
@@ -33,6 +32,7 @@ const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
 const issuesResults = require('./paths/issues');
 const assigneesResults = require('./paths/assignee');
+const statsPage = require('./paths/allMembers');
 
 
 //Route calls
@@ -41,6 +41,7 @@ app.get('/pr', PRresults);
 app.post('/orgslist', displayList);
 app.get('/issues', issuesResults);
 app.get('/assign', assigneesResults);
+app.get('/stats', statsPage);
 
 
 // app.get('/data', dataPage);
@@ -51,4 +52,8 @@ function error404 (request, response) {
   response.status(404).send('404 not found');
 }
 
-app.listen(PORT, () => console.log(`app is listening on ${PORT}`));
+client.connect()
+  .then(() => {
+    app.listen(PORT, () => console.log(`app is listening on ${PORT}`));
+  })
+  .catch(err => console.error(err));
