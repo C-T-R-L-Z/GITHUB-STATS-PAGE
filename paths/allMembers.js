@@ -19,8 +19,6 @@ function allMembers (request, response) {
         org.members.push(new Member(member.login));
       });
 
-      console.log(org);
-      // response.send(org);
       issue(request, response, org);
     });
 }
@@ -40,6 +38,7 @@ function OrgData(name) {
   this.totalPulls = 0;
   this.reviews = 0;
   this.issues = 0;
+  this.issuesAssigned = 0;
   this.merge = 0;
 }
 
