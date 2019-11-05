@@ -3,13 +3,13 @@
 const superagent = require('superagent');
 
 function displayList (request, response) {
-  //Needs the users name and password as and input in the params
+  //Needs the users name and password as an input in the params
 
   let url = `https://api.github.com/user/orgs`;
 
   superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.username, process.env.password)
+    .auth (request.body.name, request.body.password)
     .then (results => {
 
       let orgs = results.body;
