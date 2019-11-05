@@ -11,9 +11,11 @@ function getIssues (request, response, orgData) {
     .auth (process.env.username, process.env.password)
     .then (results => {
       let issuesArr = results.body;
-      console.log(results.body);
+
       orgData.issues = issuesArr.length;
       issuesArr.forEach(issue => {
+
+        orgData.issuesAssigned += handleAssingees(issue, orgData.members);
 
         orgData.members.forEach(person=> {
 
@@ -24,9 +26,22 @@ function getIssues (request, response, orgData) {
         });
 
       });
-      response.send(orgData);
+      response.render('pages/stats/stats', {orgdata: orgData,});
     })
     .catch(err => console.error(err));
+}
+
+function handleAssingees (issue, people) {
+  let issuesAssigned = 0;
+  issue.assignees.forEach(assignee => {
+    issuesAssigned = 1;
+    people.forEach(person => {
+      if (assignee.login === person.name) {
+        person.assignedIssues++;
+      }
+    });
+  });
+  return issuesAssigned;
 }
 
 module.exports = getIssues;
