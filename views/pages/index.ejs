@@ -1,0 +1,28 @@
+<%- include('../partials/head') %>
+
+
+<body>
+  <%- include('../partials/header') %>
+
+  <h2>WELCOME GITHUBS STATS APP</h2>
+  <img src="https://github.githubassets.com/images/modules/marketplace/marketplace-illustration-01.svg" alt="">
+  <section>
+    <form action="/searhes" method="post">
+      <fieldset>
+        <label for="user">
+          <span>Please Enter Your Github Username</span>
+          <input type="text" name="name" value="<%= user.name %>">
+        </label>
+      </fieldset>
+      <fieldset>
+        <label for="user">
+          <span>Please Enter Your Github Password</span>
+          <input type="text" name="password" value="<%= user.password %>">
+      </label>
+      </fieldset>
+      <button id="edit" type="submit">Login</button>
+    </form>
+  </section>
+  <%- include('../partials/footer') %>
+</body>
+</html>
