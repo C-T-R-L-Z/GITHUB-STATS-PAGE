@@ -27,6 +27,7 @@ function getIssues (request, response, orgData) {
 
       });
       response.send(orgData);
+      // return orgData;
     })
     .catch(err => console.error(err));
 }
