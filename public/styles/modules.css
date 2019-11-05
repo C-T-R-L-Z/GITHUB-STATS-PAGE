@@ -1,0 +1,67 @@
+
+body {
+  background: lightskyblue;
+  width : 100%;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  
+}
+
+header {
+
+  background-color: black;
+  color: white;
+  height : 75px;
+  width : 100%
+
+}
+
+
+article {
+
+  text-align: center;
+}
+
+section {
+
+  background-color: lightsalmon;
+  border : 1px solid black;
+  display: inline-block;
+  height: 100%;
+  margin: 25px;
+  object-fit: scale-down;
+  position: relative;
+  margin: 20px 9px 20px 9px;
+  text-align: center;
+  width: 80%;
+
+}
+div {
+  
+  background-color: lightsalmon;
+  border : 1px solid black;
+  display: inline-block;
+  height: 100%;
+  margin: 25px;
+  object-fit: scale-down;
+  position: relative;
+  margin: 20px 9px 20px 9px;
+  text-align: center;
+  width: 80%;
+}
+
+
+
+form {
+
+  text-align: center;
+
+}
+
+
+fieldset {
+  background-color: lightblue;
+  font-family: Verdana, Geneva, Tahoma, sans-serif ;
+  font-size: 2em;
+  margin : 20px;
+
+}
