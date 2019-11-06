@@ -1,6 +1,6 @@
 'use strict';
 
-var ctx = document.getElementById('myChart');
+// var ctx = document.getElementById('myChart');
 
 function collectInformation() {
   let url = `${window.location.origin}/stats`;
@@ -33,31 +33,48 @@ function collectInformation() {
       })
       console.log(pulls)
 
-      let graphdata = []
-      // getGraph()
+      let graphdata = openissues
+      let graphlabel = '# of Open Issues'
+      let graphtype = 'pie'
+      getGraph()
 
       $('#list').on('change', function () {
         if ($(this).val() === '1') {
-          graphdata = openissues
-          getGraph(graphdata)
+          resetCanvas();
+          graphdata = openissues;
+          graphlabel = '# of Open Issues'
+          graphtype = 'pie'
+          getGraph(graphdata);
         }
         if ($(this).val() === '2') {
-          graphdata = assignedissues
-          getGraph(graphdata)
+          resetCanvas();
+          graphdata = assignedissues;
+          graphlabel = '# of Assigned Issues'
+          graphtype = 'radar'
+          getGraph(graphdata);
         }
         if ($(this).val() === '3') {
-          graphdata = pulls
-          getGraph(graphdata)
+          resetCanvas();
+          graphdata = pulls;
+          graphlabel = '# of Pulls'
+          graphtype = 'doughnut'
+          getGraph(graphdata);
         }
       });
 
+      function resetCanvas() {
+        $('#myChart').remove();
+        $('#canvas').append('<canvas id="myChart" width="400" height="400"></canvas>');
+      }
+
       function getGraph() {
+        var ctx = document.getElementById('myChart');
         var myChart = new Chart(ctx, {
-          type: 'pie',
+          type: graphtype,
           data: {
             labels: names,
             datasets: [{
-              label: '# of Open Issues',
+              label: graphlabel,
               data: graphdata,
               backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
