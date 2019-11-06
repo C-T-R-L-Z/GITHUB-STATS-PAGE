@@ -1,21 +1,20 @@
 %- include('../../partials/head') %>
+
 <body>
   <%- include('../../partials/header') %>
 
-  <article>
-    <% stats.forEach(book => { %>
-    <h4>Number of Books:<%= stats.length %></h4>
-    <section>
-      <img src=<%= stat.avatar_url %> alt="statcover">
-      <h3><%= stat.id %></h3>
-      <h4><%= stat.login %></h4>
-      <p><%= book.description %></p>
-      <h4><%= stat.isbn %></h4>
-      <h4><%= stat.statPage %></h4>
-    </section>
-    <% }) %>
-  </article>
-  <%- include('../partials/footer') %>
+  <select id='list'>
+    <option value='1'>Bar</option>
+    <option value='2'>Pie</option>
+    <option value='3'>Option C</option>
+    </select>
+    
+  <canvas id="myChart" width="400" height="400"></canvas>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="/js/app.js"></script>
+  
 </body>
 
 </html>

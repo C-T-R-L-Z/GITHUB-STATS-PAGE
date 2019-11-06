@@ -2,31 +2,47 @@
 
 const superagent = require('superagent');
 
-function getIssues (request, response) {
+function getIssues (orgData) {
 
-  let url = `https://api.github.com/orgs/C-T-R-L-Z/issues?filter=all&status=all`;
+  let url = `https://api.github.com/orgs/c-t-r-l-z/issues?filter=all&status=all`;
 
-  superagent.get(url)
+  return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
     .auth (process.env.username, process.env.password)
     .then (results => {
-      let issuesArr = results.body
-      let openIssues = [];
+      let issuesArr = results.body;
+
+      orgData.issues = issuesArr.length;
       issuesArr.forEach(issue => {
-        let found = false;
-        openIssues.forEach(person=> {
+
+        orgData.issuesAssigned += handleAssingees(issue, orgData.members);
+
+        orgData.members.forEach(person=> {
+
           if (issue.user.login === person.name) {
-            person.issue++;
-            found = true;
+            person.openIssues++;
           }
-        })
-        if (!found) {
-          openIssues.push({name:issue.user.login, issue:1})
-        }
+
+        });
+
       });
-      console.log(openIssues)
+      // response.send(orgData);
+      // return orgData;
     })
     .catch(err => console.error(err));
+}
+
+function handleAssingees (issue, people) {
+  let issuesAssigned = 0;
+  issue.assignees.forEach(assignee => {
+    issuesAssigned = 1;
+    people.forEach(person => {
+      if (assignee.login === person.name) {
+        person.assignedIssues++;
+      }
+    });
+  });
+  return issuesAssigned;
 }
 
 module.exports = getIssues;
