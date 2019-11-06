@@ -12,10 +12,7 @@ function collectInformation() {
     .then(results => {
       console.log(results)
 
-      let users = results.body;
-      let userArr = users.map(userData => new USER(userData));
-
-      response.render('pages/stats', {userList: userArr,});
+      
       
       let names = results.members.map(member => {
         return member.name
@@ -74,11 +71,5 @@ function collectInformation() {
     })
 }
 
-function USER (userData) {
-  this.name = userData.results.member.name;
-  this.openIssues = userData.results.members.openIssues;
-  this.assignedIssues = userData.results.members.openIssues;
-  
-}
 
 collectInformation();

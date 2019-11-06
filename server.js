@@ -33,7 +33,7 @@ const displayList = require('./paths/displayList');
 const issuesResults = require('./paths/issues');
 const assigneesResults = require('./paths/assignee');
 const statsPage = require('./paths/allMembers');
-const aboutPage = require('./paths/allMembers');
+const aboutPage = require('./paths/aboutPage');
 
 //Route calls
 app.get('/', homePage);
