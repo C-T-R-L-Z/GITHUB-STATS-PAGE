@@ -4,7 +4,7 @@ const superagent = require('superagent');
 
 function getIssues (orgData) {
 
-  let url = `https://api.github.com/orgs/c-t-r-l-z/issues?filter=all&status=all`;
+  let url = `https://api.github.com/orgs/${orgData.name}/issues?filter=all&status=all`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
