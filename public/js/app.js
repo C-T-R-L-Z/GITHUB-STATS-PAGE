@@ -4,10 +4,11 @@ var ctx = document.getElementById('myChart');
 
 function collectInformation() {
   let url = `${window.location.origin}/stats`;
-
+  let inputs = $('input');
   $.ajax({
     url: url,
     method: 'get',
+    data: {orgName: inputs[1].value, count: inputs[0].value,},
   })
     .then(results => {
       console.log(results)

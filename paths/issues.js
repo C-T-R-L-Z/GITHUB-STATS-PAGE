@@ -2,13 +2,13 @@
 
 const superagent = require('superagent');
 
-function getIssues (orgData) {
+function getIssues (orgData, userData) {
 
   let url = `https://api.github.com/orgs/${orgData.name}/issues?filter=all&status=all`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.username, process.env.password)
+    .auth (userData.username, userData.password)
     .then (results => {
       let issuesArr = results.body;
 
