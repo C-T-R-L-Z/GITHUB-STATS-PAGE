@@ -8,6 +8,7 @@ const pr = require('./pullRequests');
 //Create an array of all members in an org
 function allMembers (request, response) {
 
+  console.log(request.body);
   let orgName = 'C-T-R-L-Z';
   let url = `https://api.github.com/orgs/c-t-r-l-z/members`;
 
