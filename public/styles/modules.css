@@ -7,13 +7,79 @@ body {
 
 header {
 
-  background-color: black;
+  
+  background: transparent;
   color: white;
   font-size: 3vw;
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
-   
+  opacity: 0;
+  transition: opacity 1000s ease-in-out;   
 
 }
+
+
+button {
+  background-color: #6BBE92;
+  width: 20vw;
+  border: 0;
+  padding: 10px 0;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+
+header:before {
+  content: '';
+  background: linear-gradient(45deg, #f12d2d, red, #f12d2d, rgb(250, 250, 250), #f12d2d,red, red);
+  position: absolute;
+  top: -2px;
+  left:-2px;
+  background-size: 400%;
+  z-index: -1;
+  filter: blur(5px);
+  width: calc(100% + 4px);
+  height: calc(100% + 4px);
+  animation: glowing 50s linear infinite;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  border-radius: 10px;
+}
+
+header:active {
+  color: transparent;
+  z-index: -1;
+}
+
+header:active:after {
+  background: transparent;
+  z-index: -1;
+}
+
+header:hover:before {
+  opacity: 1;
+  z-index: -1;
+}
+
+header:after {
+  z-index: -1;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+}
+
+@keyframes glowing {
+  0% { background-position: 0 0; }
+  50% { background-position: 400% 0; }
+  100% { background-position: 0 0; }
+}
+
 
 
 article {
@@ -44,7 +110,6 @@ div {
   height: 100%;
   margin: 25px;
   object-fit: scale-down;
-  /* position: relative; */
   margin: 20px 9px 20px 9px;
   text-align: center;
   width: 50%;
@@ -54,7 +119,7 @@ div {
 #imgOrg {
 
     
-  border: turquoise 2px solid ;
+  border: rgb(182, 224, 220) 2px solid ;
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
   height: 100px;
   left: 0;
@@ -65,18 +130,6 @@ div {
   width: 100px;
 }
 
-/* img:hover {
-
-  background-color: rgb(60, 180, 250);
-  border: solid 7px rgb(247, 56, 56) ;
-  border-radius: 50px;
-  opacity: 1;
-  cursor: grab;
-  nav-index: auto;
-  box-shadow: 5px 5px 5px rgb(86, 136, 230);
-  transition-delay: 0.5s;
-  transition: 2s all;
-} */
 
 .formButton {
   border: none;
@@ -87,18 +140,14 @@ div {
   padding: 20px;
   text-transform: uppercase;
   border-radius: 6px;
-  /* display: inline-block; */
   transition: all 0.3s ease 0s;
-  /* position: absolute; */
-  }
+}
   
   .formButton:hover {
   color: #404040 !important;
   font-weight: 700 !important;
   letter-spacing: 3px;
   background: none;
-  /* -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57); */
   transition: all 1s ease 0s;
   }
 
@@ -153,4 +202,37 @@ input {
   text-align: center;
   height: 2vw;
   
+}
+
+.devArticle {
+
+  position:relative;
+  width:100%;
+  height: 200px;
+}
+
+.devs {
+
+  font-size: 1.5vw;
+  padding : 10px;
+
+}
+
+
+.dev_info > li {
+  
+  font-size : 1vw;
+  float: left; 
+  padding : 10px;
+  width: 100%;
+  bottom:0;
+}
+
+.dev_img {
+  position:absolute;
+  display: inline-block;
+  top: 0;
+  left:50px;
+  width: 15vw;
+  height :15vw;
 }
