@@ -1,11 +1,7 @@
-DROP TABLE IF EXISTS stats;
-CREATE TABLE stats (
+
+DROP TABLE IF EXISTS users;
+CREATE TABLE users (
   id SERIAL PRIMARY KEY,
-  org VARCHAR(255),
-  collaborator VARCHAR(255),
-  pullrequest VARCHAR(255),
-  mergerequest VARCHAR(255),
-  image_url VARCHAR(255),
-  description TEXT,
-  statpage VARCHAR(255)
-  );
+  username VARCHAR(255),
+  password VARCHAR(255)
+);

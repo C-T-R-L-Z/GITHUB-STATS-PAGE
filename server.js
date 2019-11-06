@@ -39,10 +39,12 @@ app.get('/pr', PRresults);
 app.post('/orgslist', displayList);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
-app.get('/graphs', displayPage);
+app.post('/graphs', displayPage);
+// app.get('/graphs', displayPage);
 
 function displayPage(req, res) {
-  res.render('pages/stats/stats');
+  let data = req.body;
+  res.render('pages/stats/stats', {orgName: data.orgName, count: data.count,});
 }
 
 // app.get('/data', dataPage);

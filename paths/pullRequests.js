@@ -2,30 +2,30 @@
 
 const superagent = require('superagent');
 
-function findPR(orgData) {
+function findPR(orgData, userData) {
 
   let url = `https://api.github.com/orgs/${orgData.name}/repos`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth(process.env.username, process.env.password)
+    .auth(userData.username, userData.password)
     .then(reposList => {
 
       let repos = reposList.body;
 
       let repoCalls = repos.map(repo =>{
-        let url = `https://api.github.com/repos/C-T-R-L-Z/GITHUB-STATS-PAGE/pulls?state=all`;
+        let url = `https://api.github.com/repos/${orgData.name}/${repo.name}/pulls?state=all`;
 
         return superagent.get(url)
           .set('User-Agent', 'C-T-R-L-Z')
-          .auth(process.env.username, process.env.password);
+          .auth(userData.username, userData.password);
 
       });
 
       return Promise.all(repoCalls)
         .then(results => {
           results.forEach(repo => {
-            console.log(repo.body);
+
             orgData.totalPulls += repo.body.length;
             repo.body.forEach(pullRequest => {
 

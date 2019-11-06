@@ -4,30 +4,37 @@ const superagent = require('superagent');
 
 const issue = require('./issues');
 const pr = require('./pullRequests');
+const getInformation = require('./getPassword');
 
 //Create an array of all members in an org
 function allMembers (request, response) {
 
-  console.log(request.body);
-  let orgName = 'C-T-R-L-Z';
-  let url = `https://api.github.com/orgs/c-t-r-l-z/members`;
+  let data = request.query;
 
-  superagent.get(url)
-    .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.username, process.env.password)
-    .then (results => {
-      let org = new OrgData(orgName);
+  getInformation(data.count)
+    .then(result => {
+      let userData = result.rows[0];
+      let url = `https://api.github.com/orgs/${data.orgName}/members`;
 
-      results.body.forEach(member => {
-        org.members.push(new Member(member.login));
-      });
+      superagent.get(url)
+        .set('User-Agent', 'C-T-R-L-Z')
+        .auth (userData.username, userData.password)
+        .then (results => {
 
-      let fillData = [pr(org), issue(org)];
+          let org = new OrgData(data.orgName);
 
-      Promise.all(fillData).then(() => {
-        response.send(org);
-      });
-    });
+          results.body.forEach(member => {
+            org.members.push(new Member(member.login));
+          });
+
+          let fillData = [pr(org, userData), issue(org, userData)];
+
+          Promise.all(fillData).then(() => {
+            response.send(org);
+          });
+        });
+
+    })
 }
 
 function Member (name) {
@@ -39,7 +46,8 @@ function Member (name) {
   this.merge = 0;
 }
 
-function OrgData(name) {
+function OrgData(name, username = 'missing') {
+  this.username = username;
   this.name = name;
   this.members = [];
   this.totalPulls = 0;

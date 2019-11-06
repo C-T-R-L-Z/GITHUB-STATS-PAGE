@@ -1,27 +1,38 @@
 'use strict';
 
 const superagent = require('superagent');
+const savePassword = require('./savePassword');
 
-function displayList (request, response) {
+function displayList(request, response) {
   //Needs the users name and password as an input in the params
 
-  let url = `https://api.github.com/user/orgs`;
+  let save = [savePassword(request.body)];
 
-  superagent.get(url)
-    .set('User-Agent', 'C-T-R-L-Z')
-    .auth (request.body.name, request.body.password)
-    .then (results => {
+  Promise.all(save)
+    .then(result => {
+      let url = `https://api.github.com/user/orgs`;
 
-      let orgs = results.body;
-      let orgArr = orgs.map(orgData => new ORG(orgData));
+      let userid = result[0].rows[0];
+      console.log(userid);
+      superagent
+        .get(url)
+        .set('User-Agent', 'C-T-R-L-Z')
+        .auth(request.body.name, request.body.password)
+        .then(results => {
+          let orgs = results.body;
+          let orgArr = orgs.map(orgData => new ORG(orgData));
 
-      response.render('pages/searches/orgs', {orgList: orgArr,});
-    })
+          response.render('pages/searches/orgs', {
+            orgList: orgArr,
+            username: userid.id,
+          });
+        })
 
-    .catch(err => console.error(err));
+        .catch(err => console.error(err));
+    });
 }
 
-function ORG (orgData) {
+function ORG(orgData) {
   this.login = orgData.login;
   this.avatar_url = orgData.avatar_url;
   this.id = orgData.id;
