@@ -4,7 +4,7 @@ const superagent = require('superagent');
 
 function findPR(orgData) {
 
-  let url = `https://api.github.com/orgs/C-T-R-L-Z/repos`;
+  let url = `https://api.github.com/orgs/${orgData.name}/repos`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
@@ -25,7 +25,7 @@ function findPR(orgData) {
       return Promise.all(repoCalls)
         .then(results => {
           results.forEach(repo => {
-
+            console.log(repo.body);
             orgData.totalPulls += repo.body.length;
             repo.body.forEach(pullRequest => {
 

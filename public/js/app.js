@@ -97,10 +97,6 @@ function collectInformation() {
     })
 }
 
-$('#list').change(function () {
-  if ($(this).val() === '1') {
-    // Do something for option "b"
-  }
-});
+
 
 collectInformation();

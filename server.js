@@ -30,17 +30,13 @@ app.use(methodOverride((request, response) => {
 const homePage = require('./paths/rootPath');
 const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
-const issuesResults = require('./paths/issues');
-const assigneesResults = require('./paths/assignee');
 const statsPage = require('./paths/allMembers');
-const aboutPage = require('./paths/allMembers');
+const aboutPage = require('./paths/aboutPage');
 
 //Route calls
 app.get('/', homePage);
 app.get('/pr', PRresults);
 app.post('/orgslist', displayList);
-app.get('/issues', issuesResults);
-app.get('/assign', assigneesResults);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
 app.get('/graphs', displayPage);
