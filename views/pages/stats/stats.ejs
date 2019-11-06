@@ -3,31 +3,10 @@
 <body>
   <%- include('../../partials/header') %>
 
-  <dl class="dropdown"> 
-    <dt>
-    <a href="#">
-      <span class="hida">Select</span>    
-      <p class="multiSel"></p>  
-    </a>
-    </dt>
-    <dd>
-      <div class="mutliSelect">
-        <ul>
-          <% orgList.forEach(org => { %>
-          <li>
-              <input type="checkbox" value="Name" /><%= org.member.name %></li>
-          <li>
-          <% }) %> 
-        </ul>
-        </div>
-    </dd>
-  <button>Filter</button>
-</dl>
-
   <select id='list'>
-    <option value='1'>Bar</option>
-    <option value='2'>Pie</option>
-    <option value='3'>Option C</option>
+    <option value='1'>Open Issues</option>
+    <option value='2'>Assigned Issues</option>
+    <option value='3'>Pulls</option>
     </select>
     
   <canvas id="myChart" width="400" height="400"></canvas>
