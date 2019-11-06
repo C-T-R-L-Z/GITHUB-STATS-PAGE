@@ -3,6 +3,7 @@
 const superagent = require('superagent');
 
 const issue = require('./issues');
+const pr = require('./pullRequests');
 
 //Create an array of all members in an org
 function allMembers (request, response) {
@@ -15,12 +16,16 @@ function allMembers (request, response) {
     .auth (process.env.username, process.env.password)
     .then (results => {
       let org = new OrgData(orgName);
+
       results.body.forEach(member => {
         org.members.push(new Member(member.login));
       });
 
-      issue(request, response, org);
+      let fillData = [pr(org), issue(org)];
 
+      Promise.all(fillData).then(() => {
+        response.send(org);
+      });
     });
 }
 

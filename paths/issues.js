@@ -2,11 +2,11 @@
 
 const superagent = require('superagent');
 
-function getIssues (request, response, orgData) {
+function getIssues (orgData) {
 
   let url = `https://api.github.com/orgs/c-t-r-l-z/issues?filter=all&status=all`;
 
-  superagent.get(url)
+  return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
     .auth (process.env.username, process.env.password)
     .then (results => {
@@ -26,7 +26,7 @@ function getIssues (request, response, orgData) {
         });
 
       });
-      response.send(orgData);
+      // response.send(orgData);
       // return orgData;
     })
     .catch(err => console.error(err));
