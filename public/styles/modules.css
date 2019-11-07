@@ -172,3 +172,8 @@ input {
   width: 15vw;
   height :15vw;
 }
+
+#canvas {
+
+  background-color: white;
+}
