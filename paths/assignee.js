@@ -3,8 +3,10 @@
 const superagent = require('superagent');
 
 function getAssignees(request, response) {
-
-  let url = `https://api.github.com/orgs/C-T-R-L-Z/issues?filter=all&status=all`;
+  let date = new Date();
+  date.setDate(date.getDate() - 7)
+  let d = date.toISOString()
+  let url = `https://api.github.com/orgs/C-T-R-L-Z/issues?filter=all&status=all&since=${d}`;
 
   superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
