@@ -35,6 +35,7 @@ const aboutPage = require('./paths/aboutPage');
 app.get('/', homePage);
 app.get('/pr', PRresults);
 app.post('/orgslist', displayList);
+app.get('/orgslist', displayList);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
 app.post('/graphs', displayPage);
@@ -44,8 +45,6 @@ function displayPage(req, res) {
   let data = req.body;
   res.render('pages/stats/stats', {orgName: data.orgName, count: data.count,});
 }
-
-// app.get('/data', dataPage);
 
 app.get('*', error404);
 

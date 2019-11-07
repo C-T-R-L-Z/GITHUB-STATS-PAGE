@@ -1,35 +1,34 @@
 'use strict';
 
 const superagent = require('superagent');
-const savePassword = require('./savePassword');
+const checkCookies = require('./checkCookies');
 
 function displayList(request, response) {
   //Needs the users name and password as an input in the params
 
-  let save = [savePassword(request.body)];
+  let url = `https://api.github.com/user/orgs`;
 
-  Promise.all(save)
-    .then(result => {
-      let url = `https://api.github.com/user/orgs`;
+  let userInfo;
+  if(!request.headers.cookie) {
+    userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
+  } else {
+    userInfo = checkCookies(request)
+  }
 
-      let userid = result[0].rows[0];
+  superagent
+    .get(url)
+    .set('User-Agent', 'C-T-R-L-Z')
+    .auth(userInfo.username, userInfo.key)
+    .then(results => {
+      let orgs = results.body;
+      let orgArr = orgs.map(orgData => new ORG(orgData));
 
-      superagent
-        .get(url)
-        .set('User-Agent', 'C-T-R-L-Z')
-        .auth(process.env.USERNAME, process.env.PERSONAL_KEY)
-        .then(results => {
-          let orgs = results.body;
-          let orgArr = orgs.map(orgData => new ORG(orgData));
+      response.render('pages/searches/orgs', {
+        orgList: orgArr,
+      });
+    })
 
-          response.render('pages/searches/orgs', {
-            orgList: orgArr,
-            username: userid.id,
-          });
-        })
-
-        .catch(err => console.error(err));
-    });
+    .catch(err => console.error(err));
 }
 
 function ORG(orgData) {

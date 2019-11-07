@@ -4,35 +4,38 @@ const superagent = require('superagent');
 
 const issue = require('./issues');
 const pr = require('./pullRequests');
-const getInformation = require('./getPassword');
+const checkCookies = require('./checkCookies');
 
 //Create an array of all members in an org
 function allMembers (request, response) {
 
+  let userData;
+  if(!request.headers.cookie) {
+    userData = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
+  } else {
+    userData = checkCookies(request);
+  }
+
   let data = request.query;
 
-  getInformation(data.count)
-    .then(result => {
-      let userData = result.rows[0];
-      let url = `https://api.github.com/orgs/${data.orgName}/members`;
+  let url = `https://api.github.com/orgs/${data.orgName}/members`;
 
-      superagent.get(url)
-        .set('User-Agent', 'C-T-R-L-Z')
-        .auth (process.env.USERNAME, process.env.PERSONAL_KEY)
-        .then (results => {
+  superagent.get(url)
+    .set('User-Agent', 'C-T-R-L-Z')
+    .auth (userData.username, userData.key)
+    .then (results => {
 
-          let org = new OrgData(data.orgName);
+      let org = new OrgData(data.orgName);
 
-          results.body.forEach(member => {
-            org.members.push(new Member(member.login));
-          });
+      results.body.forEach(member => {
+        org.members.push(new Member(member.login));
+      });
 
-          let fillData = [pr(org, userData), issue(org, userData)];
+      let fillData = [pr(org), issue(org)];
 
-          Promise.all(fillData).then(() => {
-            response.send(org);
-          });
-        });
+      Promise.all(fillData).then(() => {
+        response.send(org);
+      });
     });
 }
 
