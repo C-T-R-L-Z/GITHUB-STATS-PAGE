@@ -34,6 +34,22 @@ function collectInformation() {
       })
       console.log(pulls)
 
+      function dynamicColors() {
+        var r = Math.floor(Math.random() * 255);
+        var g = Math.floor(Math.random() * 255);
+        var b = Math.floor(Math.random() * 255);
+        return "rgba(" + r + "," + g + "," + b + ", 0.5)";
+     }
+
+     function poolColors() {
+      var pool = [];
+      for(let i = 0; i < names.length ; i++) {
+        pool.push(dynamicColors());
+      }
+      return pool;
+    }
+     
+    var ab = poolColors()
       var ctx = document.getElementById('openChart');
       var openChart = new Chart(ctx, {
         type: 'pie',
@@ -42,14 +58,10 @@ function collectInformation() {
           datasets: [{
             label: '# of Open Issues',
             data: openissues,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
+            backgroundColor:
+              ab
+            ,
+            
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
@@ -79,13 +91,26 @@ function collectInformation() {
               }
           },
 
+          title: {
+            display: true,
+            text: 'Open Issues of ' + `${orgName}`,
+            position: 'top',
+            fontSize: 50,
+          },
+
           label: {
             "display": true,
-            fontSize: 50
+            fontSize: 50,
+            
         },
+        
           tooltips: {
-              "enabled": false,
+            "enabled": true,
+            titleFontSize: 80,
+            bodyFontSize: 80
           },
+
+          
           scales: {
               yAxes: [{
                   barPercentage: 1.0,
@@ -93,8 +118,9 @@ function collectInformation() {
                       display: true
                   },
                   ticks: {
-                      fontSize: 50,
-                      beginAtZero: true,
+                    "enabled": true,
+                    titleFontSize: 80,
+                    bodyFontSize: 80
                   }
               }],
               xAxes: [{
@@ -119,14 +145,8 @@ function collectInformation() {
           datasets: [{
             label: '# of Assigned Issues',
             data: assignedissues,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
+            backgroundColor: 
+              ab,
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
@@ -155,13 +175,21 @@ function collectInformation() {
                 padding: 10
               }
           },
+          title: {
+            display: true,
+            text: 'Assigned Issues of ' + `${orgName}`,
+            position: 'top',
+            fontSize: 50,
+          },
 
           label: {
             "display": true,
             fontSize: 50
         },
           tooltips: {
-              "enabled": false,
+            "enabled": true,
+            titleFontSize: 80,
+            bodyFontSize: 80
           },
           scales: {
               yAxes: [{
@@ -196,14 +224,8 @@ function collectInformation() {
           datasets: [{
             label: '# of Pulls',
             data: pulls,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
+            backgroundColor: 
+            ab,
             borderColor: [
               'rgba(255, 99, 132, 1)',
               'rgba(54, 162, 235, 1)',
@@ -232,13 +254,20 @@ function collectInformation() {
                 padding: 10
               }
           },
-
+          title: {
+            display: true,
+            text: 'PR of ' + `${orgName}`,
+            position: 'top',
+            fontSize: 50,
+          },
           label: {
             "display": true,
             fontSize: 50
         },
           tooltips: {
-              "enabled": false,
+              "enabled": true,
+              titleFontSize: 80,
+              bodyFontSize: 80
           },
           scales: {
               yAxes: [{
@@ -264,11 +293,7 @@ function collectInformation() {
           }
         }
       })
-
-      
-
-
-    })
+  })
 }
 
 
