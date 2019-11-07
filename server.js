@@ -12,8 +12,6 @@ const PORT = process.env.PORT || 3002;
 
 const client = require('./client');
 
-
-
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
