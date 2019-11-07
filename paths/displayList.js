@@ -12,7 +12,7 @@ function displayList(request, response) {
   if(!request.headers.cookie) {
     userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
   } else {
-    userInfo = checkCookies(request)
+    userInfo = checkCookies(request);
   }
 
   superagent
@@ -28,7 +28,10 @@ function displayList(request, response) {
       });
     })
 
-    .catch(err => console.error(err));
+    .catch(err => {
+      response.render('pages/error', {serverError: true,});
+      console.error(err);
+    });
 }
 
 function ORG(orgData) {

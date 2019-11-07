@@ -112,17 +112,17 @@ function collectInformation() {
 
           
           scales: {
-              yAxes: [{
-                  barPercentage: 1.0,
-                  gridLines: {
-                      display: true
-                  },
-                  ticks: {
-                    "enabled": true,
-                    titleFontSize: 80,
-                    bodyFontSize: 80
-                  }
-              }],
+              // yAxes: [{
+              //     barPercentage: 1.0,
+              //     gridLines: {
+              //         display: true
+              //     },
+              //     ticks: {
+              //       "enabled": true,
+              //       titleFontSize: 80,
+              //       bodyFontSize: 80
+              //     }
+              // }],
               xAxes: [{
                   gridLines: {
                       display: true
