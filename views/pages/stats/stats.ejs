@@ -3,15 +3,11 @@
 <body>
   <%- include('../../partials/header') %>
 
-  <select id='list'>
-    <option value='1'>Open Issues</option>
-    <option value='2'>Assigned Issues</option>
-    <option value='3'>Pulls</option>
-  </select>
+    <canvas id="openChart" width="40vw" height="40vh"></canvas>
+    <canvas id="assigned" width="40vw" height="40vh"></canvas>
+    <canvas id="pullsChart" width="40vw" height="40vh"></canvas>
 
-  <div id='canvas'>
-    <canvas id="myChart" width="400" height="400"></canvas>
-  </div>
+
 
   <input type="hidden" name="count" value="<%= count %>">
   <input type="hidden" name="name" value="<%= orgName %>">
