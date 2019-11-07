@@ -35,7 +35,7 @@ function allMembers (request, response) {
       });
 
       //Collect data on pullrequests and issues for the org
-      let fillData = [pr(org), issue(org)];
+      let fillData = [pr(org, userData), issue(org, userData)];
 
       //Run all promises at once
       Promise.all(fillData).then(() => {
