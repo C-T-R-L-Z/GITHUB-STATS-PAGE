@@ -6,7 +6,11 @@
 <main>
   <div>
     <h2>WELCOME GITHUBS STATS APP</h2>
-    <form action="/orgslist" method="post">
+    <form action="/orgslist" method="GET">
+      <button type="submit">Use Default Information</button>
+    </form>
+    <button>Enter Session User</button>
+    <form action="/orgslist" method="post" class="hide">
       <fieldset>
         <label for="user">
           <span>Please Enter Your Github Username</span>
@@ -16,7 +20,7 @@
       <fieldset>
         <label for="user">
           <span>Please Enter Your Github Password</span>
-          <input type="password" name="password" value="" required>
+          <input type="text" name="Personal_Key" value="" required>
       </label>
       </fieldset>
       <button id="edit" type="submit">Login</button>

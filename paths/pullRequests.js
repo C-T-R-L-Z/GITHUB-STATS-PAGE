@@ -2,13 +2,13 @@
 
 const superagent = require('superagent');
 
-function findPR(orgData, userData) {
+function findPR(orgData) {
 
   let url = `https://api.github.com/orgs/${orgData.name}/repos`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth(userData.username, userData.password)
+    .auth(process.env.USERNAME, process.env.PERSONAL_KEY)
     .then(reposList => {
 
       let repos = reposList.body;
@@ -18,7 +18,7 @@ function findPR(orgData, userData) {
 
         return superagent.get(url)
           .set('User-Agent', 'C-T-R-L-Z')
-          .auth(userData.username, userData.password);
+          .auth(process.env.USERNAME, process.env.PERSONAL_KEY);
 
       });
 

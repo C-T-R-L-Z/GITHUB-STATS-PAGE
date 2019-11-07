@@ -18,7 +18,7 @@ function allMembers (request, response) {
 
       superagent.get(url)
         .set('User-Agent', 'C-T-R-L-Z')
-        .auth (userData.username, userData.password)
+        .auth (process.env.USERNAME, process.env.PERSONAL_KEY)
         .then (results => {
 
           let org = new OrgData(data.orgName);
@@ -33,8 +33,7 @@ function allMembers (request, response) {
             response.send(org);
           });
         });
-
-    })
+    });
 }
 
 function Member (name) {

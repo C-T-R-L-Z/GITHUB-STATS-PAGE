@@ -13,11 +13,11 @@ function displayList(request, response) {
       let url = `https://api.github.com/user/orgs`;
 
       let userid = result[0].rows[0];
-      console.log(userid);
+
       superagent
         .get(url)
         .set('User-Agent', 'C-T-R-L-Z')
-        .auth(request.body.name, request.body.password)
+        .auth(process.env.USERNAME, process.env.PERSONAL_KEY)
         .then(results => {
           let orgs = results.body;
           let orgArr = orgs.map(orgData => new ORG(orgData));
