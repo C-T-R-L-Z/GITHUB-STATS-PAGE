@@ -13,8 +13,11 @@ function findPR(orgData) {
 
       let repos = reposList.body;
 
-      let repoCalls = repos.map(repo =>{
-        let url = `https://api.github.com/repos/${orgData.name}/${repo.name}/pulls?state=all`;
+      let repoCalls = repos.map(repo => {
+        let date = new Date();
+        date.setDate(date.getDate() - 7)
+        let d = date.toISOString()
+        let url = `https://api.github.com/repos/${orgData.name}/${repo.name}/pulls?state=all&since=${d}`;
 
         return superagent.get(url)
           .set('User-Agent', 'C-T-R-L-Z')
