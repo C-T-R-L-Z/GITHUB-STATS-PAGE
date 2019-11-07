@@ -176,6 +176,11 @@ input {
 .charts {
 
   background-color: white;
-  font-size: 5vmax;
+  font-size: 1vmax;
 }
 
+#comparison {
+
+  background-color: transparent;
+  font-size: 1vmax;
+}

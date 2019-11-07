@@ -130,7 +130,7 @@ function collectInformation() {
                   ticks: {
                       min: 0,
                       max: 100,
-                      stepSize: 20
+                      stepSize: 1
                   }
               }]
           }
@@ -198,7 +198,7 @@ function collectInformation() {
                       display: true
                   },
                   ticks: {
-                      fontSize: 50,
+                      fontSize: 10,
                       beginAtZero: true,
                   }
               }],
@@ -209,13 +209,12 @@ function collectInformation() {
                   ticks: {
                       min: 0,
                       max: 100,
-                      stepSize: 20
+                      stepSize: 1
                   }
               }]
           }
         }
       })
-
       var ctx = document.getElementById('pullsChart');
       var pullsChart = new Chart(ctx, {
         type: 'doughnut',
@@ -276,7 +275,7 @@ function collectInformation() {
                       display: true
                   },
                   ticks: {
-                      fontSize: 50,
+                      fontSize: 10,
                       beginAtZero: true,
                   }
               }],
@@ -287,15 +286,86 @@ function collectInformation() {
                   ticks: {
                       min: 0,
                       max: 100,
-                      stepSize: 20
+                      stepSize: 1
                   }
               }]
           }
         }
       })
+      var ctx = document.getElementById('comparision');
+      var comparision = new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: names,
+          datasets: [{
+            label: '# of PR',
+            data: pulls,
+            backgroundColor: 
+            ab,
+
+          },
+          {
+            label: '# of Assigned Issuses',
+            data: assignedissues,
+            backgroundColor: 
+            ab,
+          },
+          {
+            label: '# of Open Issuses',
+            data: openissues,
+            backgroundColor: 
+            ab,
+          }
+        ]
+        },
+        options: {
+          responsive: true,
+          legend: {
+              "display": false,
+                            
+          },
+          title: {
+            display: true,
+            text: 'Comparision Table ' + `${orgName}`,
+            position: 'top',
+            fontSize: 10,
+
+          },
+          label: {
+            "display": true,
+            fontSize: 50
+        },
+          tooltips: {
+              "enabled": true,
+              titleFontSize: 20,
+              bodyFontSize: 20
+          },
+          scales: {
+              yAxes: [{
+                  barPercentage: 1.0,
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      fontSize: 5,
+                      beginAtZero: true,
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 100,
+                      stepSize: 0.5
+                  }
+              }]
+          }
+        }
+      
+      })
+
   })
 }
-
-
-
 collectInformation();

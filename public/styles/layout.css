@@ -16,7 +16,7 @@ body {
 
 header {
 
-  height : 100px;
+  height : 10vh;
   text-align: center;
   width : 100%
       
@@ -87,7 +87,7 @@ a {
   width:30vw!important;
   height:60vh!important;
   left: 3vw;
-  top : 15vh;
+  top : 11vh;
 
 }
 
@@ -96,7 +96,8 @@ a {
   width:30vw!important;
   height:60vh!important;
   left: 34vw;
-  top : 15vh;
+  top : 11vh;
+  z-index: -1;
 
 }
 
@@ -105,5 +106,15 @@ a {
   width:30vw!important;
   height:60vh!important;
   left: 65vw;
-  top : 15vh;
+  top : 11vh;
+  z-index: -1;
+}
+
+#comparision {
+  position: absolute;
+  width:92vw!important;
+  height:26vh!important;
+  left: 3vw;
+  top : 72vh;
+  z-index: -1;
 }
