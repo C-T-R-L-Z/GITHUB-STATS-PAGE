@@ -1,12 +1,11 @@
 header {
   animation: glowing 1s linear infinite;
-  background: linear-gradient(45deg,black,black, rgb(250, 250, 250),black, black, black, black, rgb(250, 250, 250), black);
+  background: linear-gradient(45deg,black, rgb(250, 250, 250),black, black, black, black, rgb(250, 250, 250), black);
   color: white;
   font-size: 3vw;
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
   opacity: 0.8;
-  transition: opacity 2s ease-in-out;   
-  
+  transition: opacity 20s ease-in;   
 }
 
 

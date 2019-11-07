@@ -3,18 +3,18 @@
 <body>
   <%- include('../../partials/header') %>
 
-    <canvas id="openChart" width="40vw" height="40vh"></canvas>
-    <canvas id="assigned" width="40vw" height="40vh"></canvas>
-    <canvas id="pullsChart" width="40vw" height="40vh"></canvas>
+    <canvas class="charts" id="openChart" width="40vw" height="40vh"></canvas>
+    <canvas class="charts" id="assigned" width="40vw" height="40vh"></canvas>
+    <canvas class="charts" id="pullsChart" width="40vw" height="40vh"></canvas>
 
 
-
+  
   <input type="hidden" name="count" value="<%= count %>">
   <input type="hidden" name="name" value="<%= orgName %>">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="/js/app.js"></script>
-
+  
 </body>
 
 </html>

@@ -125,7 +125,7 @@ span {
 
 button {
   font-family: 'Audiowide', cursive;
-  font-size: 0.55vw;
+  font-size: 0.8vw;
 
 }
 
@@ -133,10 +133,10 @@ input {
 
   background-color: lightseagreen;
   font-family: 'Audiowide', cursive;
-  font-size: 1.25vw;
+  font-size: 1vw;
   margin: 0.255vw;
   text-align: center;
-  height: 2vw;
+  height: 3vh;
   
 }
 
@@ -144,7 +144,7 @@ input {
 
   position:relative;
   width:100%;
-  height: 200px;
+  height: 20vh;
 }
 
 .devs {
@@ -169,11 +169,13 @@ input {
   display: inline-block;
   top: 0;
   left:50px;
-  width: 15vw;
-  height :15vw;
+  width: 10vw;
+ 
 }
 
-#canvas {
+.charts {
 
   background-color: white;
+  font-size: 5vmax;
 }
+
