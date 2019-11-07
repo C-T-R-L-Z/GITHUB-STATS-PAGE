@@ -9,8 +9,8 @@
     <form action="/orgslist" method="GET">
       <button type="submit">Use Default Information</button>
     </form>
-    <button>Enter Session User</button>
-    <form action="/orgslist" method="post" class="hide">
+    <button id="showForm">Enter Session User</button>
+    <form id="keyForm" action="/orgslist" method="post" class="hide">
       <fieldset>
         <label for="user">
           <span>Please Enter Your Github Username</span>
@@ -19,7 +19,7 @@
       </fieldset>
       <fieldset>
         <label for="user">
-          <span>Please Enter Your Github Password</span>
+          <span>Please A Personal Tag</span>
           <input type="text" name="Personal_Key" value="" required>
       </label>
       </fieldset>
@@ -29,5 +29,7 @@
   </div>
 </main>  
   <%- include('../partials/footer') %>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="js/home.js"></script>
 </body>
 </html>

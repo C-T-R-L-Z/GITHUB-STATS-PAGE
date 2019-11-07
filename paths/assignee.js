@@ -11,7 +11,7 @@ function getAssignees(request, response) {
     .auth(process.env.username, process.env.password)
     .then(results => {
       let issuesArr = results.body
-      let assigneeResults = []
+      let assigneeResults = [];
       issuesArr.forEach(issue => {
         issue.assignees.forEach(assignee => {
           let found = false
@@ -24,9 +24,8 @@ function getAssignees(request, response) {
           if (!found) {
             assigneeResults.push({ name: assignee.login, assigned: 1 })
           }
-        })
-      })
-      console.log(assigneeResults)
+        });
+      });
     })
     .catch(err => console.error(err));
 }

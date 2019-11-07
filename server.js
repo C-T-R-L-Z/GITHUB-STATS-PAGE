@@ -34,7 +34,7 @@ const aboutPage = require('./paths/aboutPage');
 //Route calls
 app.get('/', homePage);
 app.get('/pr', PRresults);
-app.post('/orgslist', displayList);
+app.post('/orgslist', displayListPost);
 app.get('/orgslist', displayList);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
@@ -44,6 +44,18 @@ app.post('/graphs', displayPage);
 function displayPage(req, res) {
   let data = req.body;
   res.render('pages/stats/stats', {orgName: data.orgName, count: data.count,});
+}
+
+function displayListPost (request, response) {
+
+  let inputs = request.headers.cookie.split(';');
+
+  let inputData = {
+    username: inputs[0].slice(inputs[0].indexOf('=') + 1),
+    key: inputs[1].slice(inputs[1].indexOf('=') + 1),
+  };
+
+  displayList(request, response, inputData);
 }
 
 // app.get('/data', dataPage);

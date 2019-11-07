@@ -12,7 +12,6 @@
         <h3><%= org.login %></h3>
         <p><%= org.description %></p>
         <form action="/graphs" method="post">
-            <input type="hidden" name="count" value="<%= username %>">
             <button class="formButton" type="submit" name="orgName" value="<%= org.login %>">Choose Organisation</button>
           </form>
       </div>
