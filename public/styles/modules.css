@@ -5,16 +5,6 @@ body {
   width : 100%;
 }
 
-header {
-
-  background-color: black;
-  color: white;
-  font-size: 3vw;
-  box-shadow: 5px 5px 5px rgb(3, 8, 19);
-   
-
-}
-
 
 article {
 
@@ -44,7 +34,6 @@ div {
   height: 100%;
   margin: 25px;
   object-fit: scale-down;
-  /* position: relative; */
   margin: 20px 9px 20px 9px;
   text-align: center;
   width: 50%;
@@ -54,7 +43,7 @@ div {
 #imgOrg {
 
     
-  border: turquoise 2px solid ;
+  border: rgb(182, 224, 220) 2px solid ;
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
   height: 100px;
   left: 0;
@@ -65,18 +54,6 @@ div {
   width: 100px;
 }
 
-/* img:hover {
-
-  background-color: rgb(60, 180, 250);
-  border: solid 7px rgb(247, 56, 56) ;
-  border-radius: 50px;
-  opacity: 1;
-  cursor: grab;
-  nav-index: auto;
-  box-shadow: 5px 5px 5px rgb(86, 136, 230);
-  transition-delay: 0.5s;
-  transition: 2s all;
-} */
 
 .formButton {
   border: none;
@@ -87,18 +64,14 @@ div {
   padding: 20px;
   text-transform: uppercase;
   border-radius: 6px;
-  /* display: inline-block; */
   transition: all 0.3s ease 0s;
-  /* position: absolute; */
-  }
+}
   
   .formButton:hover {
   color: #404040 !important;
   font-weight: 700 !important;
   letter-spacing: 3px;
   background: none;
-  /* -webkit-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57);
-  -moz-box-shadow: 0px 5px 40px -10px rgba(0,0,0,0.57); */
   transition: all 1s ease 0s;
   }
 
@@ -126,6 +99,18 @@ h2 {
   margin-top: 20px;
 }
 
+button {
+  background-color: #6BBE92;
+  width: 20vw;
+  border: 0;
+  padding: 10px 0;
+  margin: 5px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
+}
+
+
 h3 {
   text-align: center;
   font-size: 1.5vw;
@@ -140,7 +125,7 @@ span {
 
 button {
   font-family: 'Audiowide', cursive;
-  font-size: 0.55vw;
+  font-size: 0.8vw;
 
 }
 
@@ -148,9 +133,49 @@ input {
 
   background-color: lightseagreen;
   font-family: 'Audiowide', cursive;
-  font-size: 1.25vw;
+  font-size: 1vw;
   margin: 0.255vw;
   text-align: center;
-  height: 2vw;
+  height: 3vh;
   
 }
+
+.devArticle {
+
+  position:relative;
+  width:100%;
+  height: 20vh;
+}
+
+.devs {
+
+  font-size: 1.5vw;
+  padding : 10px;
+
+}
+
+
+.dev_info > li {
+  
+  font-size : 1vw;
+  float: left; 
+  padding : 10px;
+  width: 100%;
+  bottom:0;
+}
+
+.dev_img {
+  position:absolute;
+  display: inline-block;
+  top: 0;
+  left:50px;
+  width: 10vw;
+ 
+}
+
+.charts {
+
+  background-color: white;
+  font-size: 5vmax;
+}
+

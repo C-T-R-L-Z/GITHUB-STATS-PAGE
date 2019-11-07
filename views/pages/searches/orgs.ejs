@@ -11,13 +11,16 @@
         <h3><%= org.id %></h3>
         <h3><%= org.login %></h3>
         <p><%= org.description %></p>
-        <button class="formButton" type="submit">Choose Organisation</button>
+        <form action="/graphs" method="post">
+            <input type="hidden" name="count" value="<%= username %>">
+            <button class="formButton" type="submit" name="orgName" value="<%= org.login %>">Choose Organisation</button>
+          </form>
       </div>
       <% }) %>  
     </article>
     <%- include('../../partials/footer') %>
     <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="js/app.js"></script>
+    <script src="js/search.js"></script>
   </body>
 </html>
 

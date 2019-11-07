@@ -4,21 +4,21 @@ const superagent = require('superagent');
 
 function findPR(orgData) {
 
-  let url = `https://api.github.com/orgs/C-T-R-L-Z/repos`;
+  let url = `https://api.github.com/orgs/${orgData.name}/repos`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth(process.env.username, process.env.password)
+    .auth(process.env.USERNAME, process.env.PERSONAL_KEY)
     .then(reposList => {
 
       let repos = reposList.body;
 
       let repoCalls = repos.map(repo =>{
-        let url = `https://api.github.com/repos/C-T-R-L-Z/GITHUB-STATS-PAGE/pulls?state=all`;
+        let url = `https://api.github.com/repos/${orgData.name}/${repo.name}/pulls?state=all`;
 
         return superagent.get(url)
           .set('User-Agent', 'C-T-R-L-Z')
-          .auth(process.env.username, process.env.password);
+          .auth(process.env.USERNAME, process.env.PERSONAL_KEY);
 
       });
 

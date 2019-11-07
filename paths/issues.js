@@ -4,11 +4,11 @@ const superagent = require('superagent');
 
 function getIssues (orgData) {
 
-  let url = `https://api.github.com/orgs/c-t-r-l-z/issues?filter=all&status=all`;
+  let url = `https://api.github.com/orgs/${orgData.name}/issues?filter=all&status=all`;
 
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.username, process.env.password)
+    .auth (process.env.USERNAME, process.env.PERSONAL_KEY)
     .then (results => {
       let issuesArr = results.body;
 

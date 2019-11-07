@@ -5,7 +5,6 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   height: 100vh;
-  overflow: hidden;
   justify-content: center;
   align-items: center;
   background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
@@ -20,11 +19,10 @@ header {
       
 }
 
-
-
 article {
 
   text-align: center;
+  margin : 20px;
 }
 
 section {
@@ -68,4 +66,41 @@ fieldset {
 #homeImage {
 
   display: initial;
+}
+
+p {
+  margin : 20px;
+  padding: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+#pullsChart {
+  position: absolute;
+  
+  width:30vw!important;
+  height:60vh!important;
+  left: 3vw;
+  top : 15vh;
+
+}
+
+#assigned {
+  position: absolute;
+  width:30vw!important;
+  height:60vh!important;
+  left: 34vw;
+  top : 15vh;
+
+}
+
+#openChart {
+  position: absolute;
+  width:30vw!important;
+  height:60vh!important;
+  left: 65vw;
+  top : 15vh;
 }

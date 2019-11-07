@@ -1,19 +1,17 @@
 'use strict';
 
-/* global currentUser */ // From app.js
-/* global Chart */ // From Chart.js
+const getIssues = require('/issues.js')
 
-// var userInfo = document.getElementById('user-info');
 
-// var labels = ['Pull', 'Merge', 'Blah'];
-// var dataCalories = [];
-// var dataDistance = [];
+var labels = ['Pull', 'Merge', 'Blah'];
+var dataCalories = [];
+var dataDistance = [];
 
-// function printProfile() {
-//   var h2 = document.createElement('h2');
-//   userInfo.appendChild(h2);
-//   h2.textContent = 'Name: ' + currentUser.name;
-//   userInfo.appendChild(h2);
+function printProfile() {
+  var h2 = document.createElement('h2');
+  userInfo.appendChild(h2);
+  h2.textContent = 'Name: ' + currentUser.name;
+  userInfo.appendChild(h2);
 
 //   var h3 = document.createElement('h3');
 //   userInfo.appendChild(h3);

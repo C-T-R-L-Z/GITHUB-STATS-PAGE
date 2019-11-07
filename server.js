@@ -12,8 +12,6 @@ const PORT = process.env.PORT || 3002;
 
 const client = require('./client');
 
-
-
 app.use(express.urlencoded({ extended: true }));
 app.set('view engine', 'ejs');
 app.use(express.static('public'));
@@ -30,23 +28,21 @@ app.use(methodOverride((request, response) => {
 const homePage = require('./paths/rootPath');
 const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
-const issuesResults = require('./paths/issues');
-const assigneesResults = require('./paths/assignee');
 const statsPage = require('./paths/allMembers');
-
+const aboutPage = require('./paths/aboutPage');
 
 //Route calls
 app.get('/', homePage);
 app.get('/pr', PRresults);
 app.post('/orgslist', displayList);
-app.get('/issues', issuesResults);
-app.get('/assign', assigneesResults);
 app.get('/stats', statsPage);
-
-app.get('/graphs', displayPage);
+app.get('/about', aboutPage);
+app.post('/graphs', displayPage);
+// app.get('/graphs', displayPage);
 
 function displayPage(req, res) {
-  res.render('pages/stats/stats');
+  let data = req.body;
+  res.render('pages/stats/stats', {orgName: data.orgName, count: data.count,});
 }
 
 // app.get('/data', dataPage);
