@@ -1,9 +1,22 @@
 <%- include('../partials/head') %>
 
   <body>
-  <%- include('../../partials/header') %>
+  <%- include('../partials/header') %>
 
-  <p><%= error %></p>
+  <main>
+    <% if (serverError) { %>
+      <h2>The Information That You Entered Seems To Have An Error In It</h2>
+      <h2>We Were Unable To Collect The Information That You Wanted</h2>
+    <% } else { %>
+      <h2>You Seem To Have Ventured Off The Beaten Path</h2>
+    <% } %>
+    <div>
+      <button>
+        <a href="/">Return Home?</a>
+      </button>
+    </div>
+  </main>
+
   <%- include('../partials/footer') %>
   </body>
 </html>
