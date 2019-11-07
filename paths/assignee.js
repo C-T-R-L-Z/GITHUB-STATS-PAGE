@@ -10,19 +10,19 @@ function getAssignees(request, response) {
     .set('User-Agent', 'C-T-R-L-Z')
     .auth(process.env.username, process.env.password)
     .then(results => {
-      let issuesArr = results.body
+      let issuesArr = results.body;
       let assigneeResults = [];
       issuesArr.forEach(issue => {
         issue.assignees.forEach(assignee => {
-          let found = false
+          let found = false;
           assigneeResults.forEach(person => {
             if (assignee.login === person.name) {
               person.assigned++;
               found = true;
             }
-          })
+          });
           if (!found) {
-            assigneeResults.push({ name: assignee.login, assigned: 1 })
+            assigneeResults.push({ name: assignee.login, assigned: 1 });
           }
         });
       });

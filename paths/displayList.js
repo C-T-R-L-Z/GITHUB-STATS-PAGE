@@ -1,11 +1,19 @@
 'use strict';
 
 const superagent = require('superagent');
+const checkCookies = require('./checkCookies');
 
-function displayList(request, response, userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}) {
+function displayList(request, response) {
   //Needs the users name and password as an input in the params
 
   let url = `https://api.github.com/user/orgs`;
+
+  let userInfo;
+  if(!request.headers.cookie) {
+    userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
+  } else {
+    userInfo = checkCookies(request)
+  }
 
   superagent
     .get(url)

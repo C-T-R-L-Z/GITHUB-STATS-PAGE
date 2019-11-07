@@ -4,9 +4,17 @@ const superagent = require('superagent');
 
 const issue = require('./issues');
 const pr = require('./pullRequests');
+const checkCookies = require('./checkCookies');
 
 //Create an array of all members in an org
 function allMembers (request, response) {
+
+  let userData;
+  if(!request.headers.cookie) {
+    userData = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
+  } else {
+    userData = checkCookies(request);
+  }
 
   let data = request.query;
 
@@ -14,7 +22,7 @@ function allMembers (request, response) {
 
   superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth (process.env.USERNAME, process.env.PERSONAL_KEY)
+    .auth (userData.username, userData.key)
     .then (results => {
 
       let org = new OrgData(data.orgName);
