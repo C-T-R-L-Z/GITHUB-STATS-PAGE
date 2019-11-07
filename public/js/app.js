@@ -61,19 +61,54 @@ function collectInformation() {
             borderWidth: 1
           }]
         },
-        options: {
-          title: {
-            display: true,
-            text: orgName + ' # of Open Issues'
+        options:{
+          responsive: true,
+          maintainAspectRatio: true,
+          pieceLabel: {
+            render: 'percentage',
+            fontColor: 'black',
+            fontSize: 14,
+          },
+          legend: {
+              "display": true,
+              labels : {
+                
+                fontSize: 50,
+                
+                padding: 10
+              }
+          },
+
+          label: {
+            "display": true,
+            fontSize: 50
+        },
+          tooltips: {
+              "enabled": false,
           },
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
+              yAxes: [{
+                  barPercentage: 1.0,
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      fontSize: 50,
+                      beginAtZero: true,
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 100,
+                      stepSize: 20
+                  }
+              }]
           }
-        }
+      }
       })
 
       var ctx = document.getElementById('assigned');
@@ -103,17 +138,52 @@ function collectInformation() {
             borderWidth: 1
           }]
         },
-        options: {
-          title: {
-            display: true,
-            text: orgName + ' # of Assigned Issues'
+        options:{
+          responsive: true,
+          maintainAspectRatio: true,
+          pieceLabel: {
+            render: 'percentage',
+            fontColor: 'black',
+            fontSize: 14,
+          },
+          legend: {
+              "display": true,
+              labels : {
+                
+                fontSize: 50,
+                
+                padding: 10
+              }
+          },
+
+          label: {
+            "display": true,
+            fontSize: 50
+        },
+          tooltips: {
+              "enabled": false,
           },
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
+              yAxes: [{
+                  barPercentage: 1.0,
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      fontSize: 50,
+                      beginAtZero: true,
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 100,
+                      stepSize: 20
+                  }
+              }]
           }
         }
       })
@@ -146,16 +216,51 @@ function collectInformation() {
           }]
         },
         options: {
-          title: {
-            display: true,
-            text: orgName + ' # of Pulls'
+          responsive: true,
+          maintainAspectRatio: true,
+          pieceLabel: {
+            render: 'percentage',
+            fontColor: 'black',
+            fontSize: 14,
+          },
+          legend: {
+              "display": true,
+              labels : {
+                
+                fontSize: 50,
+                
+                padding: 10
+              }
+          },
+
+          label: {
+            "display": true,
+            fontSize: 50
+        },
+          tooltips: {
+              "enabled": false,
           },
           scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
+              yAxes: [{
+                  barPercentage: 1.0,
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      fontSize: 50,
+                      beginAtZero: true,
+                  }
+              }],
+              xAxes: [{
+                  gridLines: {
+                      display: true
+                  },
+                  ticks: {
+                      min: 0,
+                      max: 100,
+                      stepSize: 20
+                  }
+              }]
           }
         }
       })
