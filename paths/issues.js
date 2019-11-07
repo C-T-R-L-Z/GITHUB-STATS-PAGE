@@ -2,7 +2,7 @@
 
 const superagent = require('superagent');
 
-function getIssues(orgData) {
+function getIssues(orgData, userData) {
 
   //Find the date of 1 week ago to limit the search range
   let date = new Date();
@@ -14,7 +14,7 @@ function getIssues(orgData) {
   //Returning the superagent call to be used in a Promise.all
   return superagent.get(url)
     .set('User-Agent', 'C-T-R-L-Z')
-    .auth(process.env.USERNAME, process.env.PERSONAL_KEY)
+    .auth(userData.username, userData.key)
     .then(results => {
       let issuesArr = results.body;
 

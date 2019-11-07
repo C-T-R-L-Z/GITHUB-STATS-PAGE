@@ -2,6 +2,7 @@
 
 const superagent = require('superagent');
 const checkCookies = require('./checkCookies');
+const updateDB = require('./updateDB');
 
 function displayList(request, response) {
   //Needs the users name and password as an input in the params
@@ -23,9 +24,9 @@ function displayList(request, response) {
       let orgs = results.body;
       let orgArr = orgs.map(orgData => new ORG(orgData));
 
-      response.render('pages/searches/orgs', {
-        orgList: orgArr,
-      });
+      response.render('pages/searches/orgs', {orgList: orgArr,});
+
+      updateDB({call: 1, username: userInfo.username,});
     })
 
     .catch(err => {
