@@ -2,7 +2,7 @@
 
 const superagent = require('superagent');
 const checkCookies = require('./checkCookies');
-const updateDB = require('./updateDB');
+const updateDB = require('./updateUser');
 
 function displayList(request, response) {
   //Needs the users name and password as an input in the params

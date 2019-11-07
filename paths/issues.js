@@ -18,6 +18,7 @@ function getIssues(orgData, userData) {
     .then(results => {
       let issuesArr = results.body;
 
+      orgData.calls++;
       orgData.issues = issuesArr.length;
       issuesArr.forEach(issue => {
 
@@ -30,6 +31,7 @@ function getIssues(orgData, userData) {
           }
         });
       });
+      return orgData;
     })
     .catch(err => console.error(err));
 }

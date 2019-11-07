@@ -25,6 +25,7 @@ function findPR(orgData, userData) {
 
       });
 
+      orgData.calls += repoCalls.length + 1;
       return Promise.all(repoCalls)
         .then(results => {
           results.forEach(repo => {

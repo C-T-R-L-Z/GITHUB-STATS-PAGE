@@ -5,6 +5,7 @@ const superagent = require('superagent');
 const issue = require('./issues');
 const pr = require('./pullRequests');
 const checkCookies = require('./checkCookies');
+const updateOrgs = require('./updateOrgs');
 
 //Create an array of all members in an org
 function allMembers (request, response) {
@@ -29,6 +30,7 @@ function allMembers (request, response) {
 
       //Create new Org Obj
       let org = new OrgData(data.orgName);
+      org.calls++;
 
       results.body.forEach(member => {
         org.members.push(new Member(member.login));
@@ -40,6 +42,7 @@ function allMembers (request, response) {
       //Run all promises at once
       Promise.all(fillData).then(() => {
         response.send(org);
+        updateOrgs(org, userData.username);
       });
     });
 }
@@ -58,7 +61,7 @@ function Member (name) {
 
 //constructor for the orginazation object
 function OrgData(name) {
-
+  this.calls = 0;
   this.name = name;
   this.members = [];
   this.totalPulls = 0;
