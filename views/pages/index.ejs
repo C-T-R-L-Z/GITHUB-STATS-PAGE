@@ -3,33 +3,39 @@
 
 <body>
   <%- include('../partials/header') %>
-<main>
-  <div>
-    <h2>WELCOME GITHUBS STATS APP</h2>
-    <form action="/orgslist" method="GET">
-      <button type="submit" id="default">Use Default Information</button>
-    </form>
-    <button id="showForm">Enter Session User</button>
-    <form id="keyForm" action="/orgslist" method="post" class="hide">
-      <fieldset>
-        <label for="user">
-          <span>Please Enter Your Github Username</span>
-          <input type="text" name="name" value="" required>
-        </label>
-      </fieldset>
-      <fieldset>
-        <label for="user">
-          <span>Please A Personal Tag</span>
-          <input type="text" name="Personal_Key" value="" required>
-      </label>
-      </fieldset>
-      <button id="edit" type="submit">Login</button>
-    </form>
-    <img id="homeImage" src="https://github.githubassets.com/images/modules/marketplace/marketplace-illustration-01.svg" alt="">
-  </div>
-</main>  
+  <main>
+    <div>
+      <h2>WELCOME GITHUBS STATS APP</h2>
+      <form action="/orgslist" method="GET">
+        <button type="submit" id="default">Use Default Information</button>
+      </form>
+      <button id="showForm">Enter Session User</button>
+      <form id="keyForm" action="/orgslist" method="post" class="hide">
+        <fieldset>
+          <label for="user">
+            <span>Please Enter Your Github Username</span>
+            <input type="text" name="name" value="" required>
+          </label>
+        </fieldset>
+        <fieldset>
+          <label for="user">
+            <span>Please A Personal Tag</span>
+            <input type="text" name="Personal_Key" value="" required>
+            <button id='show'>Get A Perosnal Tag!</button>
+            <div id="ptag" style="display:none">
+              To get your own perosnal access token. Please follow the instructions details <a id="atag" href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">here</a>.
+            </div>
+          </label>
+        </fieldset>
+        <button id="edit" type="submit">Login</button>
+      </form>
+      <img id="homeImage"
+        src="https://github.githubassets.com/images/modules/marketplace/marketplace-illustration-01.svg" alt="">
+    </div>
+  </main>
   <%- include('../partials/footer') %>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
   <script src="js/home.js"></script>
 </body>
+
 </html>
