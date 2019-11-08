@@ -10,11 +10,13 @@ function displayList(request, response) {
   let url = `https://api.github.com/user/orgs`;
 
   let userInfo;
+
   if(!request.headers.cookie) {
-    userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,}
+    userInfo = {username: process.env.USERNAME, key: process.env.PERSONAL_KEY,};
   } else {
     userInfo = checkCookies(request);
   }
+
 
   superagent
     .get(url)
