@@ -1,7 +1,14 @@
 
-DROP TABLE IF EXISTS users;
-CREATE TABLE users (
+DROP TABLE IF EXISTS orgs;
+CREATE TABLE orgs (
+  id SERIAL PRIMARY KEY,
+  orgName VARCHAR(255),
+  time BIGINT
+);
+DROP TABLE IF EXISTS siteStats;
+CREATE TABLE siteStats (
   id SERIAL PRIMARY KEY,
   username VARCHAR(255),
-  password VARCHAR(255)
+  apiCalls INTEGER,
+  time BIGINT
 );

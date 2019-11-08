@@ -26,33 +26,27 @@ app.use(methodOverride((request, response) => {
 
 //import file paths
 const homePage = require('./paths/rootPath');
-const PRresults = require('./paths/pullRequests');
 const displayList = require('./paths/displayList');
 const statsPage = require('./paths/allMembers');
 const aboutPage = require('./paths/aboutPage');
+const displayPage = require('./paths/displayData');
 
 //Route calls
 app.get('/', homePage);
-app.get('/pr', PRresults);
-app.post('/orgslist', displayList);
+app.get('/orgslist', displayList);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
 app.post('/graphs', displayPage);
-// app.get('/graphs', displayPage);
 
-function displayPage(req, res) {
-  let data = req.body;
-  res.render('pages/stats/stats', {orgName: data.orgName, count: data.count,});
-}
-
-// app.get('/data', dataPage);
-
+//Catch all for unused paths
 app.get('*', error404);
 
+//Dead end display message
 function error404 (request, response) {
-  response.status(404).send('404 not found');
+  response.status(404).render('pages/error', {serverError: false,});
 }
 
+//Link up DB
 client.connect()
   .then(() => {
     app.listen(PORT, () => console.log(`app is listening on ${PORT}`));
