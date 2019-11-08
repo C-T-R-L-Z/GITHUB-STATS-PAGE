@@ -1,36 +1,24 @@
-
 .hide {
   display: none;
 }
-body {
-  font-family: 'Raleway', sans-serif;
-  background-image: radial-gradient(circle at center, #899Dc4, #495D84);
-  background-size: cover;
-  background-repeat: no-repeat;
-  height: 100vh;
-  justify-content: center;
-  align-items: center;
-  background: radial-gradient(ellipse at bottom, #1b2735, #090a0f);
-  font-weight: 300;
-}
 
 header {
-
   height : 10vh;
   text-align: center;
-  width : 100%
-      
+  width : 100%  
+}
+
+main{
+  margin: 80px;
 }
 
 article {
-
   text-align: center;
   margin : 20px;
 }
 
 section {
-
-  background-color: lightsalmon;
+  background-color: rgb(155, 215, 229);
   border : 1px solid black;
   display: inline-block;
   height: 100%;
@@ -40,55 +28,59 @@ section {
   margin: 20px 9px 20px 9px;
   text-align: center;
   width: 80%;
-
 }
 
-title {
+div {
+  background-color: rgb(155, 215, 229);
+  border : 1px solid white;
+  box-shadow: 5px 5px 5px rgb(3, 8, 19);
+  display: inline-block;
+  height: 100%;
+  margin: 25px;
+  object-fit: scale-down;
+  margin: 20px 9px 20px 9px;
+  text-align: center;
+  width: 50%;
+}
 
+
+#imgOrg {    
+  border: rgb(182, 224, 220) 2px solid ;
+  box-shadow: 5px 5px 5px rgb(3, 8, 19);
+  height: 100px;
+  left: 0;
+  margin: 5px;
+  object-fit: scale-down;
+  position: relative;
+  top: 0;
+  width: 100px;
+}
+title {
   font-size : 4vw;
   margin-top: 50px;
 }
 
-
-
 form {
-
   text-align: center;
-
 }
-
 
 fieldset {
   background-color: lightblue;
   font-family: Verdana, Geneva, Tahoma, sans-serif ;
   font-size: 2em;
   margin : 20px;
-
 }
 
 #homeImage {
-
   display: initial;
-}
-
-p {
-  margin : 20px;
-  padding: 20px;
-}
-
-a {
-  text-decoration: none;
-  color: white;
 }
 
 #pullsChart {
   position: absolute;
-  
   width:30vw!important;
   height:60vh!important;
   left: 3vw;
   top : 11vh;
-
 }
 
 #assigned {
@@ -97,8 +89,6 @@ a {
   height:60vh!important;
   left: 34vw;
   top : 11vh;
-  z-index: -1;
-
 }
 
 #openChart {
@@ -107,7 +97,6 @@ a {
   height:60vh!important;
   left: 65vw;
   top : 11vh;
-  z-index: -1;
 }
 
 #comparision {
@@ -116,5 +105,4 @@ a {
   height:26vh!important;
   left: 3vw;
   top : 72vh;
-  z-index: -1;
 }

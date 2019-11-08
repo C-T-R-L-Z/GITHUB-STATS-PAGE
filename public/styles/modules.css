@@ -1,67 +1,12 @@
 
-body {
-  background: lightskyblue;
-  font-family: 'Audiowide', cursive;
-  width : 100%;
-}
-
-
-article {
-
-  text-align: center;
-}
-
-section {
-
-  background-color: lightsalmon;
-  border : 1px solid black;
-  display: inline-block;
-  height: 100%;
-  margin: 25px;
-  object-fit: scale-down;
-  position: relative;
-  margin: 20px 9px 20px 9px;
-  text-align: center;
-  width: 80%;
-
-}
-div {
-  
-  background-color: rgb(241, 143, 143);
-  border : 1px solid white;
-  box-shadow: 5px 5px 5px rgb(3, 8, 19);
-  display: inline-block;
-  height: 100%;
-  margin: 25px;
-  object-fit: scale-down;
-  margin: 20px 9px 20px 9px;
-  text-align: center;
-  width: 50%;
-}
-
-
-#imgOrg {
-
-    
-  border: rgb(182, 224, 220) 2px solid ;
-  box-shadow: 5px 5px 5px rgb(3, 8, 19);
-  height: 100px;
-  left: 0;
-  margin: 5px;
-  object-fit: scale-down;
-  position: relative;
-  top: 0;
-  width: 100px;
-}
-
-
 .formButton {
   border: none;
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
-  background: lightblue;
+  background: rgb(60, 183, 224);
   color: #ffffff !important;
   font-weight: 2vw;
   padding: 20px;
+  margin : 30px;
   text-transform: uppercase;
   border-radius: 6px;
   transition: all 0.3s ease 0s;
@@ -71,45 +16,29 @@ div {
   color: #404040 !important;
   font-weight: 700 !important;
   letter-spacing: 3px;
-  background: none;
+  background: rgb(34, 173, 94);
   transition: all 1s ease 0s;
   }
 
 form {
-
   text-align: center;
-
 }
 
 
 fieldset {
-  background-color: rgb(12, 183, 240);
+  background-color: rgb(209, 230, 236);
   font-size: 1.5vw;
   margin : 20px;
-
 }
 
 h2 {
-
   box-shadow: 5px 5px 5px rgb(3, 8, 19);
   border-radius: 5px;
   display: inline-block;
   text-align: center;
-  font-size: 2vw;
+  font-size: 1vw;
   margin-top: 20px;
 }
-
-button {
-  background-color: #6BBE92;
-  width: 20vw;
-  border: 0;
-  padding: 10px 0;
-  margin: 5px 0;
-  text-align: center;
-  color: #fff;
-  font-weight: bold;
-}
-
 
 h3 {
   text-align: center;
@@ -117,46 +46,73 @@ h3 {
   margin: 10px;
 }
 
-span {
-  font-family: 'Audiowide', cursive;
-  font-size: 1.1vw;
 
+h4 {
+  font-family: 'Audiowide', cursive;
+  display: inline-block;
+  text-align: center;
+  font-size: 1vw;
+  margin-top: 5px;
+}
+
+p {
+  margin : 20px;
+  padding: 20px;
+}
+
+
+
+#ptag {
+  border:none;
+  border-style: none;
+  box-shadow: none;
+  background-color: rgb(209, 230, 236);
+    
 }
 
 button {
+  background-color: rgb(126, 240, 240);
+  border-radius: 10px;
+  width: 20vw;
+  border: 0;
+  padding: 20px 0;
+  margin: 20px 0;
+  text-align: center;
+  color: #fff;
+  font-weight: bold;
   font-family: 'Audiowide', cursive;
   font-size: 0.8vw;
+}
 
+
+
+span {
+  font-family: 'Audiowide', cursive;
+  font-size: 1.1vw;
 }
 
 input {
-
-  background-color: lightseagreen;
+  background-color: rgb(118, 196, 192);
   font-family: 'Audiowide', cursive;
   font-size: 1vw;
   margin: 0.255vw;
   text-align: center;
   height: 3vh;
-  
 }
 
 .devArticle {
-
   position:relative;
   width:100%;
   height: 20vh;
 }
 
 .devs {
-
   font-size: 1.5vw;
   padding : 10px;
-
 }
 
 
 .dev_info > li {
-  
   font-size : 1vw;
   float: left; 
   padding : 10px;
@@ -170,17 +126,14 @@ input {
   top: 0;
   left:50px;
   width: 10vw;
- 
 }
 
 .charts {
-
   background-color: white;
   font-size: 1vmax;
 }
 
 #comparison {
-
   background-color: transparent;
   font-size: 1vmax;
 }

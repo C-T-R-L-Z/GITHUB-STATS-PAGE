@@ -10,7 +10,7 @@
         <img id="imgOrg" src=<%= org.avatar_url %> alt="statcover">
         <h3><%= org.id %></h3>
         <h3><%= org.login %></h3>
-        <p><%= org.description %></p>
+        <h3><%= org.description %></h3>
         <form action="/graphs" method="post">
             <button class="formButton" type="submit" name="orgName" value="<%= org.login %>">Choose Organisation</button>
           </form>
