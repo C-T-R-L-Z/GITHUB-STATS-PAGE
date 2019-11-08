@@ -131,6 +131,8 @@ input {
 .charts {
   background-color: white;
   font-size: 1vmax;
+  border-radius: 20px;
+  box-shadow: 5px 5px 5px rgb(3, 8, 19);
 }
 
 #comparison {

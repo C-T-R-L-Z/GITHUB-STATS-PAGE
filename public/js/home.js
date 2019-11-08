@@ -19,10 +19,6 @@ function removeCookies() {
   document.cookie = 'key=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
 }
 
-$('#show').on('click', function () {
-  $('#ptag').toggle();
-});
-
 $('#atag').on('click', function (e) {
   e.preventDefault();
   var url = $(this).attr('href');
