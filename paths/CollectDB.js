@@ -26,7 +26,6 @@ function computeData (response, userData, orgData) {
 }
 
 function handleUsers(data, userData) {
-  console.log(userData)
   let names = [];
   userData.forEach(user => {
     if (!names.includes(user.name)) {
