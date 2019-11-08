@@ -22,14 +22,20 @@ function getIssues(orgData, userData) {
       orgData.issues = issuesArr.length;
       issuesArr.forEach(issue => {
 
-        orgData.issuesAssigned += handleAssingees(issue, orgData.members);
+        let oneWeek = 7 * 24 * 60 * 60 * 1000;
+        let oneWeekAgo = (new Date()).getTime() - oneWeek;
+        let issueDate = new Date(issue.created_at);
 
-        orgData.members.forEach(person => {
+        if (issueDate > oneWeekAgo) {
+          orgData.issuesAssigned += handleAssingees(issue, orgData.members);
 
-          if (issue.user.login === person.name) {
-            person.openIssues++;
-          }
-        });
+          orgData.members.forEach(person => {
+
+            if (issue.user.login === person.name) {
+              person.openIssues++;
+            }
+          });
+        }
       });
       return orgData;
     })
