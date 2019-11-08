@@ -5,11 +5,11 @@
   <%- include('../partials/header') %>
   <main>
     <div>
-      <h2>WELCOME GITHUBS STATS APP</h2>
+      <h3>WELCOME TO GITHUB STATS APP</h3>
       <form action="/orgslist" method="GET">
-        <button type="submit" id="default">Use Default Information</button>
+        <button class= "formButton" type="submit" id="default">Use Default Information</button>
       </form>
-      <button id="showForm">Enter Session User</button>
+      <button class= "formButton" id="showForm">Enter Session User</button>
       <form id="keyForm" action="/orgslist" method="GET" class="hide">
         <fieldset>
           <label for="user">
@@ -19,15 +19,12 @@
         </fieldset>
         <fieldset>
           <label for="user">
-            <span>Please A Personal Tag</span>
+            <span>Please Enter Your Personal Token</span>
             <input type="text" name="Personal_Key" value="" required>
-            <button id='show'>Get A Perosnal Tag!</button>
-            <div id="ptag" style="display:none">
-              To get your own perosnal access token. Please follow the instructions details <a id="atag" href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">here</a>.
-            </div>
+            <a id="atag" href="https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line">To get your own personal access token. Please follow the instructions details here.</a>
           </label>
         </fieldset>
-        <button id="edit" type="submit">Login</button>
+        <button class= "formButton" id="edit" type="submit">Login</button>
       </form>
       <img id="homeImage"
         src="https://github.githubassets.com/images/modules/marketplace/marketplace-illustration-01.svg" alt="">
