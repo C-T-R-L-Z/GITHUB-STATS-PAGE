@@ -30,6 +30,7 @@ const displayList = require('./paths/displayList');
 const statsPage = require('./paths/allMembers');
 const aboutPage = require('./paths/aboutPage');
 const displayPage = require('./paths/displayData');
+const siteData = require('./paths/CollectDB');
 
 //Route calls
 app.get('/', homePage);
@@ -37,6 +38,7 @@ app.get('/orgslist', displayList);
 app.get('/stats', statsPage);
 app.get('/about', aboutPage);
 app.post('/graphs', displayPage);
+app.get('/siteData', siteData);
 
 //Catch all for unused paths
 app.get('*', error404);
